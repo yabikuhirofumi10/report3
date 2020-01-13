@@ -7,10 +7,10 @@ package jp.ac.uryukyu.ie.e195762;
  *  boolean dead; //敵の生死状態。true=死亡。
  */
 public class LivingThing {
-    String name;
-    int hitPoint;
-    int attack;
-    boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
      * @param name 敵の名前
@@ -32,9 +32,16 @@ public class LivingThing {
         return dead;
     }
 
+    public boolean setIsDead(boolean setDead){
+        dead = setDead;
+        return dead;
+    }
+
     public String getName(){
         return name;
     }
+
+    public int getHitPoint(){return hitPoint;}
 
     /**
      * 敵へ攻撃するメソッド。
@@ -62,6 +69,9 @@ public class LivingThing {
             System.out.printf("%sは倒れた。\n", name);
         }
     }
-
+    public int setDamaged(int damage){
+        hitPoint -= damage;
+        return hitPoint;
+    }
 }
 
